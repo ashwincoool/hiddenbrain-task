@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS- hiddenbrains</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="plugin.js"></script>
+</head>
+<body>
+<div class="container">
+ <div class="row">
+    <div class="col-sm-12">
+        <h3>Write a simple palindrome function (less than 160 characters) that returns a boolean indicating whether or not a string.</h3>
+        <pre>
+           //replace() method searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
+            //toLowerCase method to covert all character into lower case
+
+           function isPalindrome(str) {
+            if(str.length<160 || typeof (str) == 'string'){ //check string is valid string and length is less than 160 char
+            str = str.replace(/\W/g, '').toLowerCase();
+            return (str == str.split('').reverse().join(''));
+            }else{
+              return false;
+            }
+          }
+
+          console.log(isPalindrome("redivider"));
+        </pre>
+      </div>
+    </div>
+
+     <div class="row">
+    <div class="col-sm-12">
+        <h3>Create Jquery plugin that have methods</h3>
+
+        <pre>
+          //calling function
+           $( document ).ready(function() {
+    $( '#here1' ).hello();//default
+    $( '#here2' ).hello({
+        name: 'Jhon Garcia',
+        color: 'green'
+    });//Update the call to hello plugin
+
+});
+
+//plugin function
+
+(function ( $ ) {
+ 
+    $.fn.hello = function( options ) {
+ 
+        // Default options
+        var settings = $.extend({
+            name: 'Ashwin Panbude',
+            color: 'blue'
+        }, options );
+ 
+        // Apply options
+        return this.append('Hello ' + settings.name + '!').css({ color: settings.color });
+ 
+    };
+ 
+}( jQuery ));
+
+
+        </pre>
+        <p>This is output using plugin</p>
+        <div id="here1"></div>
+        <div id="here2"></div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+  //replace() method searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
+  //toLowerCase method to covert all character into lower case
+
+ function isPalindrome(str) {
+  if(str.length<160 || typeof (str) == 'string'){ //check string is valid string and length is less than 160 char
+  str = str.replace(/\W/g, '').toLowerCase();
+  return (str == str.split('').reverse().join(''));
+  }else{
+    return false;
+  }
+}
+
+console.log(isPalindrome("redivider"));
+</script>
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $( '#here1' ).hello();//default
+    $( '#here2' ).hello({
+        name: 'Jhon Garcia',
+        color: 'green'
+    });//Update the call to hello plugin
+
+});
+
+</script>
+
+</body>
+</html>
